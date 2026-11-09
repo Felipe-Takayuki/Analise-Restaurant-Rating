@@ -1,0 +1,217 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1320 900" width="1320" height="900" style="background-color: #0f172a; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <defs>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="115%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#000000" flood-opacity="0.4"/>
+    </filter>
+    <marker id="dot" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6">
+      <circle cx="5" cy="5" r="4" fill="#38bdf8"/>
+    </marker>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#38bdf8"/>
+    </marker>
+    <linearGradient id="header-consumer" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0284c7"/>
+      <stop offset="100%" stop-color="#0369a1"/>
+    </linearGradient>
+    <linearGradient id="header-restaurant" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#d97706"/>
+      <stop offset="100%" stop-color="#b45309"/>
+    </linearGradient>
+    <linearGradient id="header-rating" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#6d28d9"/>
+    </linearGradient>
+    <linearGradient id="header-pref" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#059669"/>
+      <stop offset="100%" stop-color="#047857"/>
+    </linearGradient>
+    <linearGradient id="header-cuis" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#e11d48"/>
+      <stop offset="100%" stop-color="#be123c"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Title & Subtitle -->
+  <text x="660" y="46" fill="#f8fafc" font-size="24" font-weight="700" text-anchor="middle" letter-spacing="0.5">Restaurant Ratings Database Schema (ERD)</text>
+  <text x="660" y="72" fill="#94a3b8" font-size="14" font-weight="400" text-anchor="middle">Modelo Entidade-Relacionamento e Estrutura Relacional</text>
+
+  <!-- Relationships Lines -->
+  <!-- consumers (right-mid: 370, 240) to ratings (left-mid: 490, 440) -->
+  <path d="M 370 240 C 430 240, 430 440, 490 440" fill="none" stroke="#38bdf8" stroke-width="2.5" stroke-dasharray="none" marker-start="url(#dot)" marker-end="url(#arrow)"/>
+  <rect x="395" y="325" width="65" height="20" rx="10" fill="#1e293b" stroke="#38bdf8" stroke-width="1"/>
+  <text x="427" y="339" fill="#38bdf8" font-size="11" font-weight="600" text-anchor="middle">1 : N</text>
+
+  <!-- consumers (bottom: 215, 510) to consumer_preferences (top: 215, 630) -->
+  <path d="M 215 510 L 215 630" fill="none" stroke="#34d399" stroke-width="2.5" marker-start="url(#dot)" marker-end="url(#arrow)"/>
+  <rect x="185" y="558" width="60" height="20" rx="10" fill="#1e293b" stroke="#34d399" stroke-width="1"/>
+  <text x="215" y="572" fill="#34d399" font-size="11" font-weight="600" text-anchor="middle">1 : N</text>
+
+  <!-- restaurants (left-mid: 950, 240) to ratings (right-mid: 830, 440) -->
+  <path d="M 950 240 C 890 240, 890 440, 830 440" fill="none" stroke="#f59e0b" stroke-width="2.5" marker-start="url(#dot)" marker-end="url(#arrow)"/>
+  <rect x="860" y="325" width="65" height="20" rx="10" fill="#1e293b" stroke="#f59e0b" stroke-width="1"/>
+  <text x="892" y="339" fill="#f59e0b" font-size="11" font-weight="600" text-anchor="middle">1 : N</text>
+
+  <!-- restaurants (bottom: 1105, 510) to restaurant_cuisines (top: 1105, 630) -->
+  <path d="M 1105 510 L 1105 630" fill="none" stroke="#fb7185" stroke-width="2.5" marker-start="url(#dot)" marker-end="url(#arrow)"/>
+  <rect x="1075" y="558" width="60" height="20" rx="10" fill="#1e293b" stroke="#fb7185" stroke-width="1"/>
+  <text x="1105" y="572" fill="#fb7185" font-size="11" font-weight="600" text-anchor="middle">1 : N</text>
+
+  <!-- TABLE 1: CONSUMERS (x: 60, y: 100, w: 310, h: 410) -->
+  <g filter="url(#shadow)">
+    <rect x="60" y="100" width="310" height="410" rx="10" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <rect x="60" y="100" width="310" height="42" rx="10" fill="url(#header-consumer)"/>
+    <rect x="60" y="132" width="310" height="10" fill="url(#header-consumer)"/>
+    <text x="80" y="127" fill="#ffffff" font-size="15" font-weight="700">consumers</text>
+    <text x="350" y="126" fill="#bae6fd" font-size="11" text-anchor="end">138 linhas</text>
+
+    <!-- Column list -->
+    <g font-size="12" font-family="monospace">
+      <!-- PK -->
+      <rect x="75" y="152" width="28" height="17" rx="3" fill="#fbbf24" fill-opacity="0.2"/>
+      <text x="89" y="164" fill="#fbbf24" font-size="10" font-weight="700" text-anchor="middle">PK</text>
+      <text x="112" y="165" fill="#f8fafc" font-weight="600">consumer_id</text>
+      <text x="355" y="165" fill="#94a3b8" text-anchor="end">VARCHAR(10)</text>
+
+      <line x1="70" y1="178" x2="360" y2="178" stroke="#334155" stroke-width="0.8"/>
+
+      <text x="112" y="195" fill="#cbd5e1">city</text><text x="355" y="195" fill="#64748b" text-anchor="end">VARCHAR(50)</text>
+      <text x="112" y="217" fill="#cbd5e1">state</text><text x="355" y="217" fill="#64748b" text-anchor="end">VARCHAR(50)</text>
+      <text x="112" y="239" fill="#cbd5e1">country</text><text x="355" y="239" fill="#64748b" text-anchor="end">VARCHAR(50)</text>
+      <text x="112" y="261" fill="#cbd5e1">latitude</text><text x="355" y="261" fill="#64748b" text-anchor="end">DECIMAL(10,6)</text>
+      <text x="112" y="283" fill="#cbd5e1">longitude</text><text x="355" y="283" fill="#64748b" text-anchor="end">DECIMAL(11,6)</text>
+      <text x="112" y="305" fill="#cbd5e1">smoker</text><text x="355" y="305" fill="#64748b" text-anchor="end">VARCHAR(10)</text>
+      <text x="112" y="327" fill="#cbd5e1">drink_level</text><text x="355" y="327" fill="#64748b" text-anchor="end">VARCHAR(30)</text>
+      <text x="112" y="349" fill="#cbd5e1">transportation_method</text><text x="355" y="349" fill="#64748b" text-anchor="end">VARCHAR(30)</text>
+      <text x="112" y="371" fill="#cbd5e1">marital_status</text><text x="355" y="371" fill="#64748b" text-anchor="end">VARCHAR(20)</text>
+      <text x="112" y="393" fill="#cbd5e1">children</text><text x="355" y="393" fill="#64748b" text-anchor="end">VARCHAR(20)</text>
+      <text x="112" y="415" fill="#cbd5e1">age</text><text x="355" y="415" fill="#64748b" text-anchor="end">INT</text>
+      <text x="112" y="437" fill="#cbd5e1">occupation</text><text x="355" y="327" fill="#64748b" text-anchor="end"></text><text x="355" y="437" fill="#64748b" text-anchor="end">VARCHAR(30)</text>
+      <text x="112" y="459" fill="#cbd5e1">budget</text><text x="355" y="459" fill="#64748b" text-anchor="end">VARCHAR(20)</text>
+    </g>
+  </g>
+
+  <!-- TABLE 2: RESTAURANTS (x: 950, y: 100, w: 310, h: 410) -->
+  <g filter="url(#shadow)">
+    <rect x="950" y="100" width="310" height="410" rx="10" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <rect x="950" y="100" width="310" height="42" rx="10" fill="url(#header-restaurant)"/>
+    <rect x="950" y="132" width="310" height="10" fill="url(#header-restaurant)"/>
+    <text x="970" y="127" fill="#ffffff" font-size="15" font-weight="700">restaurants</text>
+    <text x="1240" y="126" fill="#fef3c7" font-size="11" text-anchor="end">130 linhas</text>
+
+    <!-- Column list -->
+    <g font-size="12" font-family="monospace">
+      <!-- PK -->
+      <rect x="965" y="152" width="28" height="17" rx="3" fill="#fbbf24" fill-opacity="0.2"/>
+      <text x="979" y="164" fill="#fbbf24" font-size="10" font-weight="700" text-anchor="middle">PK</text>
+      <text x="1002" y="165" fill="#f8fafc" font-weight="600">restaurant_id</text>
+      <text x="1245" y="165" fill="#94a3b8" text-anchor="end">INT</text>
+
+      <line x1="960" y1="178" x2="1250" y2="178" stroke="#334155" stroke-width="0.8"/>
+
+      <text x="1002" y="195" fill="#cbd5e1">name</text><text x="1245" y="195" fill="#64748b" text-anchor="end">VARCHAR(100)</text>
+      <text x="1002" y="217" fill="#cbd5e1">city</text><text x="1245" y="217" fill="#64748b" text-anchor="end">VARCHAR(50)</text>
+      <text x="1002" y="239" fill="#cbd5e1">state</text><text x="1245" y="239" fill="#64748b" text-anchor="end">VARCHAR(50)</text>
+      <text x="1002" y="261" fill="#cbd5e1">country</text><text x="1245" y="261" fill="#64748b" text-anchor="end">VARCHAR(50)</text>
+      <text x="1002" y="283" fill="#cbd5e1">zip_code</text><text x="1245" y="283" fill="#64748b" text-anchor="end">VARCHAR(20)</text>
+      <text x="1002" y="305" fill="#cbd5e1">latitude</text><text x="1245" y="305" fill="#64748b" text-anchor="end">DECIMAL(10,7)</text>
+      <text x="1002" y="327" fill="#cbd5e1">longitude</text><text x="1245" y="327" fill="#64748b" text-anchor="end">DECIMAL(11,7)</text>
+      <text x="1002" y="349" fill="#cbd5e1">alcohol_service</text><text x="1245" y="349" fill="#64748b" text-anchor="end">VARCHAR(30)</text>
+      <text x="1002" y="371" fill="#cbd5e1">smoking_allowed</text><text x="1245" y="371" fill="#64748b" text-anchor="end">VARCHAR(30)</text>
+      <text x="1002" y="393" fill="#cbd5e1">price</text><text x="1245" y="393" fill="#64748b" text-anchor="end">VARCHAR(20)</text>
+      <text x="1002" y="415" fill="#cbd5e1">franchise</text><text x="1245" y="415" fill="#64748b" text-anchor="end">VARCHAR(10)</text>
+      <text x="1002" y="437" fill="#cbd5e1">area</text><text x="1245" y="437" fill="#64748b" text-anchor="end">VARCHAR(20)</text>
+      <text x="1002" y="459" fill="#cbd5e1">parking</text><text x="1245" y="459" fill="#64748b" text-anchor="end">VARCHAR(30)</text>
+    </g>
+  </g>
+
+  <!-- TABLE 3: RATINGS (x: 490, y: 310, w: 340, h: 240) -->
+  <g filter="url(#shadow)">
+    <rect x="490" y="310" width="340" height="240" rx="10" fill="#1e293b" stroke="#8b5cf6" stroke-width="1.5"/>
+    <rect x="490" y="310" width="340" height="42" rx="10" fill="url(#header-rating)"/>
+    <rect x="490" y="342" width="340" height="10" fill="url(#header-rating)"/>
+    <text x="510" y="337" fill="#ffffff" font-size="15" font-weight="700">ratings</text>
+    <text x="810" y="336" fill="#ddd6fe" font-size="11" text-anchor="end">1.161 avaliações</text>
+
+    <g font-size="12" font-family="monospace">
+      <!-- PK FK 1 -->
+      <rect x="505" y="362" width="46" height="17" rx="3" fill="#38bdf8" fill-opacity="0.2"/>
+      <text x="528" y="374" fill="#38bdf8" font-size="9" font-weight="700" text-anchor="middle">PK / FK</text>
+      <text x="560" y="375" fill="#f8fafc" font-weight="600">consumer_id</text>
+      <text x="815" y="375" fill="#94a3b8" text-anchor="end">VARCHAR(10)</text>
+
+      <!-- PK FK 2 -->
+      <rect x="505" y="389" width="46" height="17" rx="3" fill="#f59e0b" fill-opacity="0.2"/>
+      <text x="528" y="401" fill="#f59e0b" font-size="9" font-weight="700" text-anchor="middle">PK / FK</text>
+      <text x="560" y="402" fill="#f8fafc" font-weight="600">restaurant_id</text>
+      <text x="815" y="402" fill="#94a3b8" text-anchor="end">INT</text>
+
+      <line x1="500" y1="416" x2="820" y2="416" stroke="#334155" stroke-width="0.8"/>
+
+      <text x="560" y="440" fill="#cbd5e1">overall_rating</text><text x="815" y="440" fill="#a78bfa" text-anchor="end">INT (0 - 2)</text>
+      <text x="560" y="468" fill="#cbd5e1">food_rating</text><text x="815" y="468" fill="#a78bfa" text-anchor="end">INT (0 - 2)</text>
+      <text x="560" y="496" fill="#cbd5e1">service_rating</text><text x="815" y="496" fill="#a78bfa" text-anchor="end">INT (0 - 2)</text>
+    </g>
+  </g>
+
+  <!-- TABLE 4: CONSUMER_PREFERENCES (x: 60, y: 630, w: 310, h: 170) -->
+  <g filter="url(#shadow)">
+    <rect x="60" y="630" width="310" height="170" rx="10" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <rect x="60" y="630" width="310" height="42" rx="10" fill="url(#header-pref)"/>
+    <rect x="60" y="662" width="310" height="10" fill="url(#header-pref)"/>
+    <text x="80" y="657" fill="#ffffff" font-size="15" font-weight="700">consumer_preferences</text>
+    <text x="350" y="656" fill="#a7f3d0" font-size="11" text-anchor="end">330 linhas</text>
+
+    <g font-size="12" font-family="monospace">
+      <!-- PK FK -->
+      <rect x="75" y="685" width="46" height="17" rx="3" fill="#38bdf8" fill-opacity="0.2"/>
+      <text x="98" y="697" fill="#38bdf8" font-size="9" font-weight="700" text-anchor="middle">PK / FK</text>
+      <text x="130" y="698" fill="#f8fafc" font-weight="600">consumer_id</text>
+      <text x="355" y="698" fill="#94a3b8" text-anchor="end">VARCHAR(10)</text>
+
+      <!-- PK -->
+      <rect x="75" y="715" width="28" height="17" rx="3" fill="#fbbf24" fill-opacity="0.2"/>
+      <text x="89" y="727" fill="#fbbf24" font-size="10" font-weight="700" text-anchor="middle">PK</text>
+      <text x="112" y="728" fill="#f8fafc" font-weight="600">preferred_cuisine</text>
+      <text x="355" y="728" fill="#94a3b8" text-anchor="end">VARCHAR(50)</text>
+    </g>
+  </g>
+
+  <!-- TABLE 5: RESTAURANT_CUISINES (x: 950, y: 630, w: 310, h: 170) -->
+  <g filter="url(#shadow)">
+    <rect x="950" y="630" width="310" height="170" rx="10" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <rect x="950" y="630" width="310" height="42" rx="10" fill="url(#header-cuis)"/>
+    <rect x="950" y="662" width="310" height="10" fill="url(#header-cuis)"/>
+    <text x="970" y="657" fill="#ffffff" font-size="15" font-weight="700">restaurant_cuisines</text>
+    <text x="1240" y="656" fill="#fecdd3" font-size="11" text-anchor="end">112 linhas</text>
+
+    <g font-size="12" font-family="monospace">
+      <!-- PK FK -->
+      <rect x="965" y="685" width="46" height="17" rx="3" fill="#f59e0b" fill-opacity="0.2"/>
+      <text x="988" y="697" fill="#f59e0b" font-size="9" font-weight="700" text-anchor="middle">PK / FK</text>
+      <text x="1020" y="698" fill="#f8fafc" font-weight="600">restaurant_id</text>
+      <text x="1245" y="698" fill="#94a3b8" text-anchor="end">INT</text>
+
+      <!-- PK -->
+      <rect x="965" y="715" width="28" height="17" rx="3" fill="#fbbf24" fill-opacity="0.2"/>
+      <text x="979" y="727" fill="#fbbf24" font-size="10" font-weight="700" text-anchor="middle">PK</text>
+      <text x="1002" y="728" fill="#f8fafc" font-weight="600">cuisine</text>
+      <text x="1245" y="728" fill="#94a3b8" text-anchor="end">VARCHAR(50)</text>
+    </g>
+  </g>
+
+  <!-- Legend -->
+  <g transform="translate(510, 680)">
+    <rect x="0" y="0" width="300" height="110" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <text x="150" y="25" fill="#e2e8f0" font-size="13" font-weight="700" text-anchor="middle">Legenda</text>
+    <rect x="25" y="42" width="24" height="16" rx="3" fill="#fbbf24" fill-opacity="0.2"/>
+    <text x="37" y="54" fill="#fbbf24" font-size="9" font-weight="700" text-anchor="middle">PK</text>
+    <text x="58" y="55" fill="#94a3b8" font-size="12">Chave Primária</text>
+
+    <rect x="165" y="42" width="24" height="16" rx="3" fill="#38bdf8" fill-opacity="0.2"/>
+    <text x="177" y="54" fill="#38bdf8" font-size="9" font-weight="700" text-anchor="middle">FK</text>
+    <text x="198" y="55" fill="#94a3b8" font-size="12">Chave Estrangeira</text>
+
+    <line x1="25" y1="85" x2="70" y2="85" stroke="#38bdf8" stroke-width="2" marker-start="url(#dot)" marker-end="url(#arrow)"/>
+    <text x="80" y="89" fill="#94a3b8" font-size="12">Relacionamento 1 para N (1:N)</text>
+  </g>
+</svg>
